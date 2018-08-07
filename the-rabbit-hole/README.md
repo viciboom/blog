@@ -1,4 +1,4 @@
-# nuxt-test
+# the rabbit hole
 
 > Nuxt.js project
 
