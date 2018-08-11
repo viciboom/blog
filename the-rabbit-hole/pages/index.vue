@@ -8,14 +8,14 @@
                 <div class="box-icon">
                     <span><i class="el-icon-date"></i>&nbsp;{{item.time}}</span>
                 </div>
-              <div class="box-content">{{item.des}}</div>
+                <div class="box-content">{{item.des}}</div>
             </el-card>
         </nuxt-link>
 
         <el-pagination class="pagination" @current-change="pagination" background layout="prev, pager, next" :page-size="5" :total="count"></el-pagination>
-      </el-col>
+        </el-col>
     </el-row>
-  </section>
+</section>
 </template>
 <script>
 import {baseurl} from '~/plugins/url.js'
@@ -23,16 +23,15 @@ import {baseurl} from '~/plugins/url.js'
 export default {
     data() {
         return {
-
         }
     },
     async asyncData({app}) {
-      // 服务器端渲染数据
-      let json = {page:1,pagesize:5}
-      let {data} =await app.$axios.get(`${baseurl}/api/article/getFrontArticle`,{params:json});
-      let {list,count} = data;
-      let lately = list.slice(0,4);
-      return {list,count,lately}
+        // 服务器端渲染数据
+        let json = {page:1,pagesize:5}
+        let {data} =await app.$axios.get(`${baseurl}/api/article/getFrontArticle`,{params:json});
+        let {list,count} = data;
+        let lately = list.slice(0,4);
+        return {list,count,lately}
     },
     methods: {
         pagination(page) {
@@ -41,14 +40,14 @@ export default {
                 let {error,count,list} = res.data;
                 this.list =list;
             });
-        }
+        },
     }
 }
 </script>
 
 <style scoped lang="less">
 .Animation(@second) {
-	  transition: all ease @second;
+	    transition: all ease @second;
 }
 .content-blog {	/*blog content*/
     margin-top: 1.5rem;
