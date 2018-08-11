@@ -1,7 +1,7 @@
 <template>
 <section class="container">
     <el-row type="flex" justify="center" class="content-blog">
-        <el-col :span="10">
+        <el-col :span="12">
             <nuxt-link  v-for="item in list" :key="item._id" :to="{name:'detail',params:{id:item._id}}" class="box-href">
                 <el-card class="box-card" shadow="hover">
                 <h2 class="box-title">{{item.title}}</h2>

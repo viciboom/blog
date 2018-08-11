@@ -38,7 +38,7 @@ import headerTab from "../components/headerTab.vue";
                 isPc: true,
                 tabs: [
                     {
-                        name: 'Home',
+                        name: '首页',
                         to: 'home'
                     },
                     {
@@ -50,7 +50,7 @@ import headerTab from "../components/headerTab.vue";
                         to: 'about'
                     },
                     {
-                        name: '88buerden',
+                        name: '其它',
                         to: 'some'
                     },
                 ],
