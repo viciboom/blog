@@ -132,5 +132,22 @@ export default {
       background-color: #fff;
     }
   }
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-to {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .3s;
+  }
+  .fade-enter-to, .fade-leave-to {
+    opacity: 0;
+  }
+
 }
 </style>
