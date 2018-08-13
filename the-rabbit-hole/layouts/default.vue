@@ -1,8 +1,21 @@
 <template>
-  <div>
+  <div id="app">
     <my-header/>
     <nuxt/>
     <my-footer/>
+    <transition name="slide-fade">
+      <div class="to-top" @click="scrollToTarget(0)" v-show="showScrollToTop">
+        <span class="top-line"
+              v-for="(line, index) in lineData"
+              :key="index"
+              :style="{
+                height: line.height,
+                left: line.left,
+                transform: line.transform
+                }">
+        </span>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -12,11 +25,31 @@ import MyHeader from '../components/Header.vue'
 
 import {mapActions, mapGetters, mapMutations} from 'vuex';
 import {SCREEN_CHANGE} from '../store/mutation'
+import {scroll} from '~/plugins/scroll.js'
 
 export default {
+  mixins: [scroll],
   data () {
     return {
-      viewWrapWidth: '1000px'
+      lineData: [
+        {
+          height: '50%',
+          left: '3px',
+          transform: 'rotateZ(45deg)'
+        },
+        {
+          height: '100%',
+          top: '0px',
+          transform: 'rotateZ(0deg)'
+        },
+        {
+          height: '50%',
+          left: '-3px',
+          transform: 'rotateZ(-45deg)'
+        }
+      ],
+      viewWrapWidth: '1000px',
+      showScrollToTop: false
     }
   },
   watch: {
@@ -31,9 +64,11 @@ export default {
   mounted () {
     this.updateScreen()
     window.addEventListener('resize', this.updateScreen)
+    window.addEventListener('scroll', this.scrollListener)
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.updateScreen, false)
+    window.removeEventListener('scroll', this.scrollListener, false)
   },
   methods: {
     updateScreen () {
@@ -49,6 +84,14 @@ export default {
       }
       this.viewWrapWidth = this.screen.width - temp + 'px'
     },
+    scrollListener () {
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop >= 60) {
+        this.showScrollToTop = true
+      } else {
+        this.showScrollToTop = false
+      }
+    },
   },
   computed: {
     ...mapGetters([
@@ -62,39 +105,32 @@ export default {
 }
 </script>
 
-<style>
-.container
-{
-  margin: 0;
+<style lang="less">
+#app {
   width: 100%;
-  min-height: 700px;
-  padding-top: 100px;
-  text-align: center;
-}
-
-.button, .button:visited
-{
-  display: inline-block;
-  color: #3B8070;
-  letter-spacing: 1px;
-  background-color: #fff;
-  border: 2px solid #3B8070;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 15px 45px;
-}
-
-.button:hover, .button:focus
-{
-  color: #fff;
-  background-color: #3B8070;
-}
-
-.title
-{
-  color: #505153;
-  font-weight: 300;
-  font-size: 2.5em;
-  margin: 0;
+  min-height: 100%;
+  min-width: 320px;
+  position: absolute;
+  .to-top {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    background-color: #2d2d34;
+    right: 10px;
+    bottom: 15px;
+    z-index: 1050;
+    cursor: pointer;
+    line-height: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    .top-line {
+      position: relative;
+      width: 2px;
+      height: 100%;
+      margin-left: 4px;
+      background-color: #fff;
+    }
+  }
 }
 </style>

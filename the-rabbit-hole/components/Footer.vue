@@ -16,7 +16,8 @@
     height:60px;
     line-height:60px;
     text-align:center;
-    background:#f5f5f5;
-		columns: #000000;;
+		background:#2d2d34;
+		color: #fff;
+		columns: #fff;
 	}
 </style>

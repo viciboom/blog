@@ -12,7 +12,7 @@
             </el-card>
         </nuxt-link>
 
-        <el-pagination class="pagination" @current-change="pagination" background layout="prev, pager, next" :page-size="5" :total="count"></el-pagination>
+        <el-pagination class="pagination" @current-change="pagination" background layout="prev, pager, next" :page-size="10" :total="count"></el-pagination>
         </el-col>
     </el-row>
 </section>
@@ -27,7 +27,7 @@ export default {
     },
     async asyncData({app}) {
         // 服务器端渲染数据
-        let json = {page:1,pagesize:5}
+        let json = {page:1,pagesize:10}
         let {data} =await app.$axios.get(`${baseurl}/api/article/getFrontArticle`,{params:json});
         let {list,count} = data;
         let lately = list.slice(0,4);
@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         pagination(page) {
-            let json = {page,pagesize:5}
+            let json = {page,pagesize:10}
             this.$axios.get(`${baseurl}/api/article/getFrontArticle`,{params:json}).then(res=>{
                 let {error,count,list} = res.data;
                 this.list =list;
@@ -48,6 +48,13 @@ export default {
 <style scoped lang="less">
 .Animation(@second) {
 	    transition: all ease @second;
+}
+.container {
+    margin: 0;
+    width: 100%;
+    min-height: 700px;
+    padding: 50px 0 50px 0;
+    text-align: center;
 }
 .content-blog {	/*blog content*/
     margin-top: 1.5rem;
@@ -62,7 +69,7 @@ export default {
             margin:0;
             &:hover {
                 .Animation(0.5s);
-                color: #ffd04b;
+                color: 	#8B3A3A;
             }
         }
         .box-icon {
@@ -77,7 +84,7 @@ export default {
             color:#666;
             &:hover {
                 .Animation(0.5s);
-                color:#ffd04b;
+                color:	#8B3A3A;
             }
             overflow: hidden;
             text-overflow: ellipsis;
