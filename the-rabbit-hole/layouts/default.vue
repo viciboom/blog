@@ -16,12 +16,14 @@
         </span>
       </div>
     </transition>
+    <right-nav></right-nav>
   </div>
 </template>
 
 <script>
 import MyFooter from '../components/Footer.vue'
 import MyHeader from '../components/Header.vue'
+import RightNav from '../components/rightNav.vue'
 
 import {mapActions, mapGetters, mapMutations} from 'vuex';
 import {SCREEN_CHANGE} from '../store/mutation'
@@ -100,7 +102,8 @@ export default {
   },
   components: {
     MyHeader,
-    MyFooter
+    MyFooter,
+    RightNav
   }
 }
 </script>

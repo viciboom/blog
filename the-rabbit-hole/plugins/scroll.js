@@ -14,7 +14,6 @@ var scroll = {
         dir = -1
       }
       timer = setInterval(() => {
-        // 匀加速运动
         t++
         currentNum -= (2 * t * dir)
         document.body.scrollTop = document.documentElement.scrollTop = currentNum
