@@ -120,8 +120,9 @@ export default {
     height: 24px;
     background-color: #2d2d34;
     right: 10px;
-    bottom: 15px;
+    bottom: 13px;
     z-index: 1050;
+    padding: 3px 2px 3px 4px;
     cursor: pointer;
     line-height: 0;
     display: flex;

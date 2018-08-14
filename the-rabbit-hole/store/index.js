@@ -31,7 +31,7 @@ const store = () => new Vuex.Store({
             return state.showRightNav
         }
     },
-    action: {
+    actions: {
         setShowRightNav (store, show) {
             store.state.showRightNav = show
         }

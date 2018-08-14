@@ -103,7 +103,7 @@ import { mapActions, mapGetters, mapMutations } from 'vuex';
       }
     },
     created () {
-
+      this.toggleLineData = this.lineStyle.normalData
     },
     watch: {
       screen (value) {
@@ -181,7 +181,9 @@ import { mapActions, mapGetters, mapMutations } from 'vuex';
     height: 24px;
     background-color: #2d2d34;
     right: 10px;
-    bottom: 45px;
+    bottom: 55px;
+    padding: 3px;
+    // padding: 5px;
     z-index: 1050;
     cursor: pointer;
     line-height: 0;
