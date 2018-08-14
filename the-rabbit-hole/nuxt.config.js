@@ -1,9 +1,11 @@
+const path = require('path')
+
 module.exports = {
   /*
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'blog',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -16,7 +18,7 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~assets/css/main.css','element-ui/lib/theme-chalk/index.css'],
+  css: ['~assets/css/main.css','element-ui/lib/theme-chalk/index.css','assets/css/Markdown.css'],
   /*
   ** Customize the progress-bar color
   */
@@ -46,6 +48,10 @@ module.exports = {
      ** Run ESLINT on save
      */
     extend (config, ctx) {
+      Object.assign(config.resolve.alias, {
+        '@plug': path.resolve(__dirname, 'plugins'),
+        '@com': path.resolve(__dirname, 'components')
+      })
       // if (ctx.isClient) {
       //   config.module.rules.push({
       //     enforce: 'pre',

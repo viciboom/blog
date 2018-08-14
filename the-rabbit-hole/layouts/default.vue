@@ -41,7 +41,7 @@ export default {
         },
         {
           height: '100%',
-          top: '0px',
+          left: '0px',
           transform: 'rotateZ(0deg)'
         },
         {

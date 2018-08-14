@@ -65,26 +65,28 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(__dirname) {var path = __webpack_require__(4);
 
 module.exports = {
   /*
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'blog',
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: 'Nuxt.js project' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
   ** Global CSS
   */
-  css: ['~assets/css/main.css', 'element-ui/lib/theme-chalk/index.css'],
+  css: ['~assets/css/main.css', 'element-ui/lib/theme-chalk/index.css', 'assets/css/Markdown.css'],
   /*
   ** Customize the progress-bar color
   */
@@ -110,6 +112,10 @@ module.exports = {
      ** Run ESLINT on save
      */
     extend: function extend(config, ctx) {
+      Object.assign(config.resolve.alias, {
+        '@plug': path.resolve(__dirname, 'plugins'),
+        '@com': path.resolve(__dirname, 'components')
+      });
       // if (ctx.isClient) {
       //   config.module.rules.push({
       //     enforce: 'pre',
@@ -121,12 +127,13 @@ module.exports = {
     }
   }
 };
+/* WEBPACK VAR INJECTION */}.call(exports, ""))
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(5);
 
 
 /***/ },
@@ -145,10 +152,16 @@ module.exports = require("nuxt");
 /* 4 */
 /***/ function(module, exports) {
 
-module.exports = require("regenerator-runtime");
+module.exports = require("path");
 
 /***/ },
 /* 5 */
+/***/ function(module, exports) {
+
+module.exports = require("regenerator-runtime");
+
+/***/ },
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";

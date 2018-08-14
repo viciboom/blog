@@ -1,7 +1,7 @@
 <template>
     <div id="header">
         <div class="header-wrap" :style="{height: isPc ? '90px' : '60px'}">
-            <div class="header-logo">
+            <div class="header-logo" @click="toHomeFromLogo">
                     <div class="item">RabbitHole</div>
             </div>
             <header-tab v-if="isPc" :tabs="tabs" @tab-click="selectTab"></header-tab>
@@ -121,7 +121,10 @@ import headerTab from "../components/headerTab.vue";
             },
             selectTab (tab) {
                 this.toggle()
-            }
+            },
+            toHomeFromLogo () {
+                window.location.href = `${window.location.origin}`
+            },
         },
         computed: {
             ...mapGetters([
