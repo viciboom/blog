@@ -71,6 +71,11 @@ export default {
                 .Animation(0.5s);
                 color: 	#8B3A3A;
             }
+            @media (max-width: 768px) {
+                font-size: 16px;
+                font-weight: bold;
+                color: #2d2d34;
+            }
         }
         .box-icon {
             font-size:12px;
@@ -87,9 +92,12 @@ export default {
                 color:	#8B3A3A;
             }
             overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            -webkit-line-clamp: 3;
+            @media (max-width: 768px) {
+                font-size: 14px;
+            }
+            // text-overflow: ellipsis;
+            // white-space: nowrap;
+            // -webkit-line-clamp: 3;
         }
     }
 }

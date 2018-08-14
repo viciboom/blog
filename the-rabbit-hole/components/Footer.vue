@@ -2,7 +2,7 @@
   <div>
   	<el-row type="flex" justify="center">
   		<el-col :span="24" class="footer">
-			<div>© 2018 ViciAyase. ALL RIGHTS RESERVED.</div>
+			<div>© 2018 TsukiKujirai. ALL RIGHTS RESERVED.</div>
   		</el-col>
   	</el-row>
   </div>
@@ -19,5 +19,8 @@
 		background:#2d2d34;
 		color: #fff;
 		columns: #fff;
+		@media (max-width: 768px) {
+			font-size: 13px;
+		}
 	}
 </style>
