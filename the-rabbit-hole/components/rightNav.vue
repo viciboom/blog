@@ -10,7 +10,15 @@
       <div class="content">
         <transition name="slide-fade">
           <div class="content-wrapper">
-
+            <img class="avatar" :src="avatar">
+            <p class="name">{{ name || 'TsukiKujirai' }}</p>
+            <p class="info">{{ info }}</p>
+            <p class="part">文章：{{ number || 0 }}</p>
+            <div class="link">
+              <el-button type="info" size="mini" class="btn">Github</el-button>
+              <el-button type="info" size="mini" class="btn">Douban</el-button>
+              <el-button type="info" size="mini" class="btn">Twitter</el-button>
+            </div>
           </div>
         </transition>
       </div>
@@ -37,6 +45,10 @@ import { mapActions, mapGetters, mapMutations } from 'vuex';
     data () {
       return {
         show: true,
+        name: '',
+        info: '我们拾取月亮与鲸的碎块来拼凑缺失的部分',
+        number: '',
+        avatar: require("../assets/img/avatar.jpg"),
         lineStyle: {
           normalData: [
             {
@@ -160,9 +172,7 @@ import { mapActions, mapGetters, mapMutations } from 'vuex';
     align-items: center;
     overflow: hidden;
     .content {
-      position: relative;
       width: 100%;
-      max-height: calc(100vh - 150px);
       overflow-y: auto;
       .content-wrapper {
         position: absolute;
@@ -172,6 +182,28 @@ import { mapActions, mapGetters, mapMutations } from 'vuex';
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-top: 100px;
+        .avatar {
+          width: 100px;
+          height: 100px;
+          border: 3px solid #fff;
+          border-radius: 50%;
+        }
+        .name {
+          padding: 0 20px 0 20px 0;
+          font-size: 18px;
+          color: #fff;
+          font-weight: bold;
+        }
+        .info, .part {
+          padding: 20px;
+          font-size: 14px;
+          color: 	#8B8386;
+          text-align: center;
+        }
+        .link {
+          padding: 5px;
+        }
       }
     }
   }
