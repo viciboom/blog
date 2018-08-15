@@ -28,18 +28,19 @@ let insertArticle = async (ctx, next) => {
 
 /**
  *
- * @param {number | null} page
- * @param {number} pagesize
- * @return {object}
+ * @param {number|null} pagesize
+ * @param {number|null} page
+ * @param {string} type
  */
 let getArticle = async (ctx, next) => {
-  try{
+  try {
     let req = ctx.request.query;
     let { parseInt } = Number;
+    let { type } = req
     let page = parseInt((req.page - 1) * req.pagesize);
     let pagesize = parseInt(req.pagesize);
-    let list = await article.find({}, {__v:0, content: 0, original: 0, list:0}).skip(page).limit(pagesize).sort({_id: -1});
-    let count = await article.count({});
+    let list = await article.find({type: type}, {__v:0, content: 0, original: 0, list:0}).skip(page).limit(pagesize).sort({_id: -1})
+    let count = await article.count({type: type});
     ctx.body = {
       error: 0,
       count,
@@ -53,6 +54,11 @@ let getArticle = async (ctx, next) => {
   }
 }
 
+/**
+ *
+ * @param {String} id
+ * @return {object|null}
+ */
 let articleInfo = async (ctx, next) => {
   try {
     let req = ctx.request.query;
