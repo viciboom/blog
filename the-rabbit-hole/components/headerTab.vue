@@ -1,6 +1,6 @@
 <template>
     <div id="header-tab">
-        <div class="tab" v-for="(tab, index) in tabs" :key="index" @click="selsectTab(tab)">
+        <div class="tab" v-for="(tab, index) in tabs" :key="index" @click="selectTab(tab)">
             <span>{{ tab.name }}</span>
         </div>
     </div>

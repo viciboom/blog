@@ -39,7 +39,7 @@ import headerTab from "../components/headerTab.vue";
                 tabs: [
                     {
                         name: '首页',
-                        to: 'home'
+                        to: 'index'
                     },
                     {
                         name: '兔子洞',
@@ -121,6 +121,7 @@ import headerTab from "../components/headerTab.vue";
             },
             selectTab (tab) {
                 this.toggle()
+                this.$router.push({name: tab.to})
             },
             toHomeFromLogo () {
                 window.location.href = `${window.location.origin}`

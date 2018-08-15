@@ -1,17 +1,17 @@
 <template>
 <div>
     <el-row type="flex" justify="center">
-    <el-col :span="14" class="detail_title">
+    <el-col :span="18" class="detail_title">
         <div>{{title}}</div>
-        <div class="time">发布时间：{{time}}&nbsp;&nbsp;&nbsp;&nbsp;分类：{{list === 'Front' ? '前端文章' : '后端文章'}}</div>
+        <div class="time">发布时间：{{time}}&nbsp;&nbsp;&nbsp;&nbsp;分类：{{list === '0' ? '魔法' : '兔子洞'}}</div>
     </el-col>
 
     </el-row>
     <el-row type="flex" justify="center">
-    <el-col :span="14" class="detail_content">
+    <el-col :span="18" class="detail_content">
         <el-card>
             <div v-show="!content">暂无文章数据...</div>
-            <div v-html="content" class="md markdown-body"></div>
+            <md-preview :content='content'></md-preview>
         </el-card>
     </el-col>
     </el-row>
@@ -20,10 +20,11 @@
 
 <script>
 import {baseurl} from '../../plugins/url.js'
+import mdPreview from '../../components/mdPreview'
 export default {
 	data() {
 		return {
-            active:'index'
+
         }
 	},
 	async asyncData({app,params}) {
@@ -42,9 +43,9 @@ export default {
 			]
 		}
 	},
-    components:{
-      
-    }
+	components:{
+		mdPreview
+	}
 }
 </script>
 <style lang="less">
@@ -63,6 +64,9 @@ body,html {
 	color:@color;
 	border-bottom:1px dashed @color;
 	text-align: center;
+	@media (max-width: 768px) {
+		font-size: 20px;
+	}
 	.time {
 		margin:1.5rem 0 0 0;
 		font-size:12px;

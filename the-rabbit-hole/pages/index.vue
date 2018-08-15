@@ -1,7 +1,7 @@
 <template>
 <section class="container">
     <el-row type="flex" justify="center" class="content-blog">
-        <el-col :span="12">
+        <el-col :span="14">
             <article-card :list="list"></article-card>
 
         <el-pagination class="pagination" @current-change="pagination" background layout="prev, pager, next" :page-size="10" :total="count"></el-pagination>
