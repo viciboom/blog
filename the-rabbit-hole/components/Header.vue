@@ -22,6 +22,7 @@
         <el-collapse-transition>
             <div class="mobile-tab-wrap" v-show="!isPc && showMobileTabs">
                 <div class="tab" v-for="(tab, index) in tabs" :key="index" @click="selectTab(tab)">
+                    <i class="iconfont" :class="tab.icon"></i>
                     <span>{{ tab.name }}</span>
                 </div>
             </div>
@@ -39,19 +40,23 @@ import headerTab from "../components/headerTab.vue";
                 tabs: [
                     {
                         name: '首页',
-                        to: 'index'
+                        to: 'index',
+                        icon: 'el-icon-menu'
                     },
                     {
                         name: '兔子洞',
-                        to: 'rabbit'
+                        to: 'rabbit',
+                        icon: 'el-icon-news'
                     },
                     {
                         name: '关于',
-                        to: 'about'
+                        to: 'about',
+                        icon: 'el-icon-tickets'
                     },
                     {
                         name: '其它',
-                        to: 'some'
+                        to: 'some',
+                        icon: 'el-icon-picture-outline'
                     },
                 ],
                 lineStyle: {
@@ -225,10 +230,14 @@ import headerTab from "../components/headerTab.vue";
                 border-top: 1px solid #eee;
                 .tab {
                     position: relative;
-                    font-size: 14px;
+                    font-size: 12px;
                     width: 100%;
                     line-height: 1;
-                    padding: 10px 30px 10px 30px;
+                    padding: 10px 30px 10px 32px;
+                    .iconfont {
+                        font-size: 12px;
+                        margin-right: 5px;
+                    }
                 }
             }
         }

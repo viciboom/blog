@@ -38,8 +38,9 @@
   }
   .box-title {	/*blog content title*/
     text-decoration:none;
-    color:#3D5064;
+    color:#555;
     margin:0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     &:hover {
       .Animation(0.5s);
       color: 	#8B3A3A;

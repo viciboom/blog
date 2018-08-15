@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="detail">
     <el-row type="flex" justify="center">
     <el-col :span="18" class="detail_title">
         <div>{{title}}</div>
@@ -55,6 +55,12 @@ export default {
 body,html {
 	background:#fff;
 	height:100%;
+}
+.detail {
+	height: 100%;
+	@media (min-width: 768px) {
+		height: 780px;
+	}
 }
 .detail_title {
 	margin:2rem 0 3rem 0;

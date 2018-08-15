@@ -4,7 +4,9 @@
         <el-col :span="14">
             <article-card :list="list"></article-card>
 
-        <el-pagination class="pagination" @current-change="pagination" background layout="prev, pager, next" :page-size="10" :total="count"></el-pagination>
+            <div class="page">
+                <el-pagination class="pagination" @current-change="pagination" layout="prev, pager, next" :page-size="10" :total="count"></el-pagination>
+            </div>
         </el-col>
     </el-row>
 </section>
@@ -48,9 +50,13 @@ export default {
     width: 100%;
     min-height: 700px;
     padding: 50px 0 50px 0;
-    text-align: center;
 }
 .content-blog {	/*blog content*/
     margin-top: 1.5rem;
+    .page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 </style>

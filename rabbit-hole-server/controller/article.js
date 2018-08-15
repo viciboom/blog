@@ -53,8 +53,26 @@ let getArticle = async (ctx, next) => {
   }
 }
 
+let articleInfo = async (ctx, next) => {
+  try {
+    let req = ctx.request.query;
+    let {id} = req;
+    let result = await article.find({_id: id});
+    ctx.body = {
+      error: 0,
+      info: result
+    }
+  } catch (e) {
+    ctx.body = {
+      error: 1,
+      errpr: e
+    }
+  }
+}
+
 
 module.exports = {
   insertArticle,
-  getArticle
+  getArticle,
+  articleInfo
 }

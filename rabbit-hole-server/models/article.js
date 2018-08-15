@@ -6,7 +6,7 @@ let articleSchema = new mongoose.Schema({
 	time:String,
 	content:String,
   original:String,
-  type:Number,
+  type:String,
 	des:String,
 	list:String
 });

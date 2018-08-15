@@ -1,6 +1,7 @@
 <template>
     <div id="header-tab">
         <div class="tab" v-for="(tab, index) in tabs" :key="index" @click="selectTab(tab)">
+            <i class="iconfont" :class="tab.icon"></i>
             <span>{{ tab.name }}</span>
         </div>
     </div>
@@ -40,6 +41,9 @@
         &:hover {
             color: #fff;
             background-color: #262a30;
+        }
+        .iconfont {
+            font-size: 12px;
         }
         .name {
             margin-left: 8px;
